@@ -1,0 +1,26 @@
+name: Simple CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Print welcome message
+      run: echo "🚀 Мой первый CI pipeline запущен!"
+    
+    - name: Show Python version
+      run: python --version
+    
+    - name: Run our Python script
+      run: python app.py
+    
+    - name: Run tests
+      run: python test_app.py
+    
+    - name: Completion message
+      run: echo "✅ Все задачи выполнены успешно!"
